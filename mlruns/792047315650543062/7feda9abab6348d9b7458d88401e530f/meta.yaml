@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/LENOVO/Documents/prueba_tecnica_meli2/mlops-boston-housing/mlruns/792047315650543062/7feda9abab6348d9b7458d88401e530f/artifacts
+end_time: 1768826497090
+entry_point_name: ''
+experiment_id: '792047315650543062'
+lifecycle_stage: active
+run_id: 7feda9abab6348d9b7458d88401e530f
+run_name: salty-horse-122
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768826469223
+status: 3
+tags: []
+user_id: LENOVO

@@ -1,0 +1,6 @@
+artifact_location: file:C:/Users/LENOVO/Documents/prueba_tecnica_meli2/mlops-boston-housing/mlruns/792047315650543062
+creation_time: 1768826468405
+experiment_id: '792047315650543062'
+last_update_time: 1768826468405
+lifecycle_stage: active
+name: boston_housing_regression
