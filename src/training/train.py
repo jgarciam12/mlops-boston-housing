@@ -17,6 +17,9 @@ import mlflow.sklearn
 # MLflow configuration
 mlflow.set_tracking_uri("file:./mlruns")
 
+import sys
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(ROOT))
 from src.data.preprocess import build_preprocessing_pipeline, FEATURES, TARGET
 
 # -------------------------------------------------
