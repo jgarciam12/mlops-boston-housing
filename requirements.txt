@@ -1,5 +1,9 @@
+fastapi
+uvicorn
 pandas
 matplotlib
+scikit-learn
+joblib
 seaborn
 xgboost
 mlflow

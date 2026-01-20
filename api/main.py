@@ -17,12 +17,17 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("api")
 
 # -------------------------------------------------
+# Model version
+# -------------------------------------------------
+MODEL_VERSION = "1.0.0"
+
+# -------------------------------------------------
 # App
 # -------------------------------------------------
 app = FastAPI(
     title="Boston Housing Prediction API",
     description="Predict house using a trained ML model",
-    version="1.0.0",
+    version=MODEL_VERSION,
 )
 
 # -------------------------------------------------
@@ -63,7 +68,11 @@ class PredictionResponse(BaseModel):
 # -------------------------------------------------
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "model_loaded": model is not None,
+        "model_version": MODEL_VERSION,
+    }
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(features: HouseFeatures):
