@@ -1,3 +1,8 @@
+"""
+Este código está diseñado para evaluar varios modelos de ML en la predicción de la variable
+
+"""
+
 import pandas as pd
 import joblib
 import logging

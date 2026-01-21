@@ -8,7 +8,8 @@ import logging
 import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT))
-from src.data.preprocess import FEATURES
+from src.inference.predict import Predictor
+
 
 # -------------------------------------------------
 # Logging
@@ -31,16 +32,14 @@ app = FastAPI(
 )
 
 # -------------------------------------------------
-# Load model
+# Load predictor
 # -------------------------------------------------
-MODEL_PATH = Path("models/model.pkl")
-
 try:
-    model = joblib.load(MODEL_PATH)
-    logger.info("Model loaded")
+    predictor = Predictor()
+    logger.info("Predictor initialized successfully")
 except Exception as e:
-    logger.error(f"Error loading model: {e}")
-    model = None
+    logger.error(f"Error initializing predictor: {e}")
+    predictor = None
 
 # -------------------------------------------------
 # Request schema
@@ -70,21 +69,17 @@ class PredictionResponse(BaseModel):
 def health_check():
     return {
         "status": "ok",
-        "model_loaded": model is not None,
+        "model_loaded": predictor is not None,
         "model_version": MODEL_VERSION,
     }
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(features: HouseFeatures):
-    if model is None:
+    if predictor is None:
         raise HTTPException(status_code=500, detail="Model not found")
 
     try:
-        # Convert input to DataFrame
-        data = pd.DataFrame([features.model_dump()])
-        data = data[FEATURES] # enforce column order
-
-        pred = model.predict(data)[0]
+        pred = predictor.predict(features.model_dump())
 
         return PredictionResponse(
             prediction=float(pred)
