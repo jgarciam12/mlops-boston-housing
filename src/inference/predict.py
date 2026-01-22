@@ -1,3 +1,7 @@
+"""
+Código exclusivo para generar inferencia de los datos nuevos
+"""
+
 import joblib
 import pandas as pd
 from pathlib import Path

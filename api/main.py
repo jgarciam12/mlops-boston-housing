@@ -1,3 +1,6 @@
+"""
+Código para servir una API y usar el modelo de predicción entrenado
+"""
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 import joblib

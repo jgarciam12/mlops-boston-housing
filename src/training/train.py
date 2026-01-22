@@ -1,6 +1,6 @@
 """
-Este código está diseñado para evaluar varios modelos de ML en la predicción de la variable
-
+Este código está diseñado para evaluar varios modelos de ML en la
+predicción de la variable MEDV y escoger el mejor y guardarlo
 """
 
 import pandas as pd
