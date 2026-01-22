@@ -57,7 +57,11 @@ mlops-boston-housing/
 │
 ├── api/
 │   └── main.py             # API FastAPI
-│
+│  
+├── .github/
+│   ├── workflows/
+│   │   └── mlops.yml
+│  
 ├── requirements.txt
 ├── Dockerfile
 ├── README.md
